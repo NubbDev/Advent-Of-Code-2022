@@ -1,32 +1,3 @@
-<<<<<<< Updated upstream
-import * as fs from 'fs'
-
-const input = fs.readFileSync('input.txt').toString().split('\n')
-const inputArray: Array<Array<number>> = []
-const finalArray: Array<number> = []
-let sol:number = 0
-
-let temp1: Array<number> = []
-let temp2: number
-input.forEach((string:string) => {
-    if (string !== '') {
-        temp1.push(parseInt(string))
-        return;
-    }
-    inputArray.push(temp1)
-    temp1 = []
-})
-inputArray.forEach(cal => {
-    temp2 = cal.reduce((partialSum, a) => partialSum + a, 0)
-    finalArray.push(temp2)
-})
-
-finalArray.sort((a, b) => b - a).slice(0, 3).forEach((num: number) => {
-    sol += num
-})
-
-console.log(sol)
-=======
 const inputFile = await Deno.readTextFile("input.txt").then(file => {
     return file.split('\n');
 });
@@ -37,8 +8,6 @@ const input: Array<Array<Array<string>>>= [];
 const ruleSet = [
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'
 ];
-
-
 
 const repeatedCharacter = (str:string):string => {
     for (let i = 0; i < str.length - 1; i++) {
@@ -59,7 +28,7 @@ inputFile.forEach(line => {
 })
 
 //task 1
-input.forEach((stringArray) => {
+input.forEach(stringArray => {
     const tempArray: string[] = [];
     stringArray[0].forEach((char:string) => {
         stringArray[1].forEach((char2:string) => {
@@ -99,5 +68,4 @@ tempArray.forEach(stringArray => {
     inputNumb2.push(ruleSet.indexOf(tempArray[0]) + 1);
 })
 
-console.log(inputNumb2.reduce((a, b) => a + b, 0))
->>>>>>> Stashed changes
+console.log(inputNumb2)
